@@ -1,0 +1,8 @@
+.Rproj.user
+.Rdata
+.Rhistory
+
+packrat/lib*/
+packrat/src
+
+webGL
