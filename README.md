@@ -1,6 +1,8 @@
 # 3D Microtiter Plate Dryer
 
-![](dryer-movie.gif)
+<div style="text-align: center;">
+  <img src="dryer-movie.gif" />
+</div>
 
 Microtiter plate ELISAs can be a pain to manufacture.  Back in 2014 -- 2015 I
 was tasked with investigating the cause of high manufacturing failure of
