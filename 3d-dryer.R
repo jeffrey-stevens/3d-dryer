@@ -22,6 +22,14 @@ PLATE_WIDTH <- 0.35
 PLATE_DEPTH <- 0.27
 
 
+# Define the scene geometry
+
+## Define the orientation arrows size
+## 
+## This seems like a good fit
+BARB_SIZE = 1/10  # As fraction of the line size
+
+
 
 # Data-manipulation functions ---------------------------------------------
 
@@ -193,6 +201,21 @@ build_dryer <- function() {
 			chamber_corners[top.v,],
 			color=gray(0.3), front="cull", back="fill", lit=FALSE
 	)
+	
+	
+	# Add some arrows for orientation
+	
+	## Arrows along the bottom-left and bottom-right sides of the dryer
+	arrow3d(c(left.x, back.y, bottom.z), c(left.x, front.y, bottom.z),
+	        s = BARB_SIZE, type = "rotation")
+	arrow3d(c(right.x, back.y, bottom.z), c(right.x, front.y, bottom.z),
+	        s = BARB_SIZE, type = "rotation")
+	
+	## Arrows along the back-left and back-right sides of the dryer, pointing up
+	arrow3d(c(left.x, back.y, bottom.z), c(left.x, back.y, top.z),
+	        s = BARB_SIZE, type = "rotation")
+	arrow3d(c(right.x, back.y, bottom.z), c(right.x, back.y, top.z),
+	        s = BARB_SIZE, type = "rotation")
 
 }
 	

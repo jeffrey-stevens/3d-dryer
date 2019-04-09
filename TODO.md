@@ -1,8 +1,8 @@
 # Todo
 
 * Make it easier to save animations locally
-* Create labels for the dryer orientation
 * More documentation on the individual functions---particularly the simulation.
+* Include a picture of the trays/dryers in the README file
 
 
 # Features
