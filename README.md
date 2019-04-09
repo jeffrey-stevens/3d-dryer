@@ -1,6 +1,6 @@
 # 3D Microtiter Plate Dryer
 
-![](https://github.com/jeffrey-stevens/3d-dryer/dryer-movie.gif)
+![](dryer-movie.gif)
 
 Microtiter plate ELISAs can be a pain to manufacture.  Back in 2014 -- 2015 I
 was tasked with investigating the cause of high manufacturing failure of
