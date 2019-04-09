@@ -1,6 +1,6 @@
 # 3D Microtiter Plate Dryer
 
-<div style="text-align: center;">
+<div align="center">
   <img src="dryer-movie.gif" />
 </div>
 
