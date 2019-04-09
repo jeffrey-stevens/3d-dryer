@@ -321,7 +321,15 @@ render_webgl <- function(readings, draw_dryer = TRUE, rm_bad = TRUE, ...) {
 
 # Pan around the dryer (freakin' awesome!)
 animate_scene <- function(device = rgl.cur(), speed = 1,
-                          save = FALSE, ...) {
+                          filename = NULL, ...) {
+  # This will automatically rotate an existing scene (either in the RGL device,
+  # or saved as a GIF animation).
+  #
+  # device:     The RGL graphics device of the scene to animate
+  # speed:      Speed of the animation, as a scaling factor
+  # filename:   The name of the output GIF file, without an extension.  If this
+  #             is NULL, then just rotate the scene in the RGL graphics device.
+  # ...:        Additional parameters to pass to movie3d or play3d
   
   # Get the current orientation
   M <- par3d("userMatrix")
@@ -396,10 +404,22 @@ animate_scene <- function(device = rgl.cur(), speed = 1,
       method = "linear", extrapolate = "constant"
     )
   
-  # Play the animation, or save it as an .mpeg file
-  if (save) {
-    movie3d(move, duration=70, ...)   
+  # Play the animation, or save it as an animated GIF file
+  if ( !is.null(filename) ) {
+    
+    fname <- basename(filename)
+    movie3d(move, duration=70, movie = fname, type = "gif", ...)
+    
+    ## RGL saves relative to the temporary directory...
+    moviefile <- paste0(file.path(tempdir(), basename(filename)), ".gif")
+    
+    result <- file.copy(moviefile, paste0(filename, ".gif"))
+    if (!result) {
+      stop("Unable to copy the .gif file to the specified location.")
+    }
+    
   } else {
+    
     play3d(move, duration=70, ...)    
   }
 

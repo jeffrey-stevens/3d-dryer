@@ -25,3 +25,17 @@ run <- function( animate = FALSE ) {
   
   invisible(dev)
 }
+
+
+# Create an animation of the dryer for GitHub
+create_movie <- function() {
+  
+  sim_data <- create_data()
+  
+  dev <- draw_scene(sim_data)
+  
+  # RGL has no way of signalling when it's done rendering!
+  #readline("Press [enter] once the scene is fully rendered to continue...")
+  
+  animate_scene(dev, filename = "dryer-movie")
+}
